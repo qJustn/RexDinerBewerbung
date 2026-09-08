@@ -1926,6 +1926,216 @@
       });
     });
 
+    <style>
+/* =========================================================
+   READABILITY PATCH — HIGH CONTRAST
+   ========================================================= */
+
+:root {
+  --text-main: #fff8e8;
+  --text-secondary: #eadfeb;
+  --text-muted: #cbbbd0;
+  --panel: rgba(9, 3, 18, 0.94);
+}
+
+/* Allgemeiner Fließtext */
+body {
+  color: var(--text-main);
+}
+
+/* Paragraphen deutlich heller */
+p {
+  color: var(--text-secondary);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+}
+
+/* Hero Beschreibung */
+.hero-content > p {
+  color: #fff8ed !important;
+  text-shadow:
+    0 2px 4px #000,
+    0 0 8px rgba(0,0,0,.8);
+}
+
+/* Karten stärker abdunkeln */
+.retro-card,
+.why-card,
+.jukebox,
+.slot-machine {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 5, 30, .97),
+      rgba(7, 3, 14, .97)
+    );
+}
+
+/* Profilinformationen */
+.info-item {
+  background: rgba(0, 0, 0, .42);
+  color: #fffaf0;
+  text-shadow: 0 1px 3px #000;
+}
+
+.info-item strong {
+  color: var(--yellow);
+  text-shadow:
+    0 0 5px rgba(255,228,92,.7),
+    0 2px 3px #000;
+}
+
+.info-item a {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow:
+    0 0 5px rgba(32,247,255,.7),
+    0 2px 3px #000;
+}
+
+/* Menü */
+.menu-board {
+  background:
+    linear-gradient(
+      rgba(12, 3, 21, .97),
+      rgba(12, 3, 21, .97)
+    ),
+    #16091f;
+}
+
+.menu-item {
+  color: #fff8ee;
+}
+
+.menu-item h4 {
+  color: #ffffff;
+  text-shadow: 0 2px 4px #000;
+}
+
+.menu-item p {
+  color: #f0e6ee !important;
+  font-size: 14px;
+  line-height: 1.65;
+  text-shadow: 0 2px 4px #000;
+}
+
+.price {
+  color: var(--yellow);
+  text-shadow:
+    0 0 6px rgba(255,228,92,.8),
+    0 2px 3px #000;
+}
+
+/* Menü Kopf */
+.menu-header p {
+  color: #fff3a6 !important;
+  text-shadow:
+    0 0 7px rgba(255,228,92,.65),
+    0 2px 4px #000;
+}
+
+/* Stärken */
+.strength {
+  background: rgba(5, 2, 12, .82);
+  border-color: rgba(32,247,255,.65);
+}
+
+.strength-top {
+  color: #ffffff;
+  text-shadow: 0 2px 4px #000;
+}
+
+.strength-top span:last-child {
+  color: #fff176;
+  text-shadow:
+    0 0 7px rgba(255,228,92,.8),
+    0 2px 3px #000;
+}
+
+/* Why-Me-Karten */
+.why-card p {
+  color: #f1e8f0 !important;
+  line-height: 1.75;
+  text-shadow: 0 2px 4px #000;
+}
+
+/* Jukebox / Slot */
+.jukebox p,
+.slot-machine p {
+  color: #f0e7f1 !important;
+  text-shadow: 0 2px 4px #000;
+}
+
+/* Retro-Effekt darf Text nicht verschlucken */
+body::before {
+  opacity: .045;
+}
+
+body::after {
+  opacity: .055;
+}
+
+/* Kontakt */
+.contact-box {
+  background:
+    linear-gradient(
+      rgba(12, 3, 21, .95),
+      rgba(12, 3, 21, .95)
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(255,42,168,.15),
+      transparent 60%
+    );
+}
+
+.contact-box p {
+  color: #fff4ed !important;
+  font-size: 16px;
+  line-height: 1.8;
+  text-shadow:
+    0 2px 5px #000;
+}
+
+.contact-pill {
+  color: #ffffff;
+  background: rgba(0,0,0,.5);
+  text-shadow: 0 2px 3px #000;
+}
+
+/* Buttons */
+.btn {
+  text-shadow: none;
+}
+
+.btn.secondary {
+  background: rgba(5, 2, 12, .75);
+}
+
+/* Navigation */
+.nav a {
+  color: #ffffff;
+  text-shadow: 0 2px 4px #000;
+}
+
+.nav a:hover {
+  color: var(--cyan);
+}
+
+/* Mobile: noch etwas mehr Kontrast */
+@media (max-width: 700px) {
+  .menu-item p,
+  .why-card p,
+  .jukebox p,
+  .slot-machine p,
+  .contact-box p {
+    color: #fff4f0 !important;
+  }
+
+  .info-item {
+    background: rgba(0,0,0,.55);
+  }
+}
+  </style>
 
     /* =========================================================
        RANDOM RETRO MESSAGE
