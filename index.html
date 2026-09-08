@@ -1,1 +1,326 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bewerbung - Jeff Jeremain | Rex Diner</title>
+    <!-- Custom Fonts für den Rex Diner Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Permanent+Marker&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff007f;
+            --neon-cyan: #00f3ff;
+            --neon-purple: #9d00ff;
+            --neon-green: #00ff66;
+            --dark-bg: #0a0512;
+            --card-bg: rgba(20, 10, 35, 0.85);
+            --text-color: #ffffff;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(255, 0, 127, 0.2), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.15), transparent 50%),
+                radial-gradient(circle at 20% 90%, rgba(157, 0, 255, 0.2), transparent 50%);
+            color: var(--text-color);
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Neon Header */
+        header {
+            text-align: center;
+            padding: 35px 20px;
+            border: 3px solid var(--neon-pink);
+            border-radius: 15px;
+            background: rgba(10, 5, 18, 0.9);
+            box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px var(--neon-pink);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        header::before {
+            content: "🦖 RAWWR! BEWERBUNG";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark-bg);
+            padding: 0 15px;
+            color: var(--neon-green);
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--neon-green);
+            letter-spacing: 1px;
+        }
+
+        .logo-title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3.8rem;
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px var(--neon-pink),
+                0 0 30px var(--neon-pink),
+                0 0 50px var(--neon-pink);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+            margin-top: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Card Sections */
+        .card {
+            background: var(--card-bg);
+            border: 2px solid var(--neon-purple);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(157, 0, 255, 0.35);
+            backdrop-filter: blur(8px);
+            position: relative;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px dashed var(--neon-pink);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Profile Data Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .info-box {
+            background: rgba(0, 243, 255, 0.05);
+            border: 1px solid var(--neon-cyan);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.15);
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .info-value {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 5px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Content Text */
+        .text-content {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+
+        .text-content p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: var(--neon-pink);
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+        /* Highlights & Badges */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background: rgba(255, 0, 127, 0.15);
+            border: 1px solid var(--neon-pink);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-shadow: 0 0 6px var(--neon-pink);
+            box-shadow: 0 0 8px rgba(255, 0, 127, 0.2);
+        }
+
+        /* Promo / Slogan Box */
+        .promo-box {
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.15), rgba(0, 243, 255, 0.15));
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.35);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .promo-title {
+            font-family: 'Permanent Marker', cursive;
+            color: var(--neon-green);
+            font-size: 2rem;
+            text-shadow: 0 0 10px var(--neon-green);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Call to Action Button */
+        .cta-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--neon-cyan);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .cta-btn:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            box-shadow: 0 0 30px var(--neon-cyan);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 10px;
+            color: #888;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 35px;
+        }
+
+        .claw-marks {
+            color: var(--neon-pink);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Neon Header -->
+        <header>
+            <h1 class="logo-title">Rex Diner</h1>
+            <div class="subtitle">Bewerbung als Angestellter</div>
+        </header>
+
+        <!-- Personal Data Section -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">📋 Personaldaten</h2>
+            </div>
+            <div class="info-grid">
+                <div class="info-box">
+                    <div class="info-label">Name</div>
+                    <div class="info-value">Jeff Jeremain</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Visumstufe</div>
+                    <div class="info-value">28</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Telefonnummer</div>
+                    <div class="info-value">6029103965</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Wohnort</div>
+                    <div class="info-value">Bridge Street, 7294</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Motivation & Experience Section -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">🦖 Über mich & Motivation</h2>
+            </div>
+            <div class="text-content">
+                <p>Sehr geehrtes Team & Management vom <span class="highlight">Rex Diner</span>,</p>
+                <p>hiermit bewerbe ich mich mit voller Begeisterung um eine Stelle als Angestellter in eurem Team. Das einzigartige Dino-Retro-Konzept, die ikonische Atmosphäre und das vielfältige Speisenangebot – von der <em>Rawwr Box</em> bis hin zum <em>Chickxulub Burger</em> – machen das Rex Diner zum besten Treffpunkt der Stadt.</p>
+                <p>Mit meinem <span class="highlight">Visum (Stufe 28)</span> bringe ich reichlich Lebenserfahrung, hohe Belastbarkeit und hervorragende Ortskenntnisse mit. Ich bin stets kundenorientiert, hilfsbereit und motiviert, unseren Gästen das beste Diner-Erlebnis zu bieten.</p>
+            </div>
+            
+            <div class="badge-list">
+                <span class="badge">⚡ Schneller & Freundlicher Service</span>
+                <span class="badge">🍔 Burger & Snack Experte</span>
+                <span class="badge">🤝 Teamfähig & Zuverlässig</span>
+                <span class="badge">📞 Motiviert & Erreichbar</span>
+            </div>
+        </div>
+
+        <!-- Interactive Rex Diner Special Section -->
+        <div class="promo-box">
+            <div class="promo-title">ISS • TRINK • BRÜLL!</div>
+            <p style="color: #fff; font-size: 1.15rem; margin-bottom: 10px;">
+                Willkommen im dinotastischen Gastronomie-Erlebnis. Ich freue mich auf ein persönliches Gespräch!
+            </p>
+            <a href="tel:6029103965" class="cta-btn">📞 JETZT ANRUFEN: 6029103965</a>
+        </div>
+
+        <footer>
+            <p><span class="claw-marks">///</span> Bewerbung von Jeff Jeremain | Bridge Street, 7294 <span class="claw-marks">///</span></p>
+            <p style="margin-top: 8px; color: #666;">Rex Diner — Design & Vorlage im offiziellen Diner Look</p>
+        </footer>
+    </div>
+
+</body>
+</html>
