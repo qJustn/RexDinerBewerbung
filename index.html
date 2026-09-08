@@ -1,578 +1,2897 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rex Diner Bewerbung | Jeff Jeremain</title>
-    <!-- 50s/60s Retro Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&family=Shrikhand&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --neon-pink: #ff007f;
-            --neon-cyan: #00f3ff;
-            --neon-yellow: #ffea00;
-            --neon-green: #00ff66;
-            --dark-bg: #0d0614;
-            --card-bg: rgba(22, 10, 36, 0.9);
-            --text-color: #ffffff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <title>Jeff Jeremain | Rex Diner Bewerbung</title>
 
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            font-family: 'Rajdhani', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
+  <meta
+    name="description"
+    content="Retro-Diner Bewerbung von Jeff Jeremain für das Rex Diner."
+  >
 
-        /* 🪩 Retro Scanlines & Punkte Overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            background-size: 100% 3px, 6px 100%;
-            pointer-events: none;
-            z-index: 999;
-        }
+  <style>
+    /* =========================================================
+       REX DINER — RETRO JOB APPLICATION
+       Single-file website
+       No external libraries
+    ========================================================= */
 
-        /* ⭐ Retro-Sterne Deko im Hintergrund */
-        .star {
-            position: fixed;
-            color: var(--neon-yellow);
-            font-size: 1rem;
-            animation: starBlink 2s infinite alternate ease-in-out;
-            pointer-events: none;
-            z-index: 1;
-        }
-        @keyframes starBlink {
-            0% { opacity: 0.2; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.3) rotate(15deg); filter: drop-shadow(0 0 8px var(--neon-yellow)); }
-        }
+    :root {
+      --pink: #ff2aa8;
+      --pink-dark: #c9167f;
+      --cyan: #18e7ff;
+      --cyan-dark: #079bb0;
+      --yellow: #ffd447;
+      --orange: #ff8a30;
 
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
+      --bg: #090812;
+      --bg-2: #10101c;
+      --bg-3: #151526;
 
-        /* 🌙 Neon Glow Header mit 50s Diner-Vibe */
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            border: 4px solid var(--neon-pink);
-            border-radius: 20px;
-            background: rgba(15, 5, 25, 0.95);
-            box-shadow: 0 0 25px var(--neon-pink), inset 0 0 25px var(--neon-pink);
-            margin-bottom: 40px;
-            position: relative;
-        }
+      --panel: #121321;
+      --panel-2: #18192a;
+      --panel-3: #202137;
 
-        .neon-sign {
-            font-family: 'Pacifico', cursive;
-            font-size: 3.8rem;
-            color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
-            animation: neonFlicker 3s infinite alternate;
-        }
+      --text-main: #f8f8ff;
+      --text-secondary: #d8d9e8;
+      --text-muted: #a8aabd;
 
-        .dino-sub {
-            font-family: 'Shrikhand', cursive;
-            font-size: 1.8rem;
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
-            letter-spacing: 2px;
-            margin-top: 5px;
-        }
+      --border: rgba(255,255,255,.14);
 
-        .tagline-yellow {
-            font-family: 'Permanent Marker', cursive;
-            color: var(--neon-yellow);
-            font-size: 1.3rem;
-            text-shadow: 0 0 8px var(--neon-yellow);
-            margin-top: 10px;
-            display: inline-block;
-            transform: rotate(-2deg);
-        }
+      --shadow-pink:
+        0 0 5px rgba(255,42,168,.8),
+        0 0 18px rgba(255,42,168,.45);
 
-        @keyframes neonFlicker {
-            0%, 100% { opacity: 1; }
-            41.99% { opacity: 1; }
-            42% { opacity: 0.8; }
-            43% { opacity: 1; }
-            45% { opacity: 0.3; }
-            46% { opacity: 1; }
-        }
+      --shadow-cyan:
+        0 0 5px rgba(24,231,255,.8),
+        0 0 18px rgba(24,231,255,.45);
 
-        /* 📱 Flexible Cards mit Light-Glow */
-        .card {
-            background: var(--card-bg);
-            border: 2px solid var(--neon-cyan);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 35px;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
-            backdrop-filter: blur(5px);
-        }
+      --shadow-yellow:
+        0 0 5px rgba(255,212,71,.8),
+        0 0 18px rgba(255,212,71,.45);
 
-        .card-header-title {
-            font-family: 'Shrikhand', cursive;
-            font-size: 1.8rem;
-            color: var(--neon-yellow);
-            text-shadow: 0 0 8px var(--neon-yellow);
-            border-bottom: 2px stroke var(--neon-pink);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+      --radius: 18px;
+    }
 
-        /* 👤 Bewerberprofil Grid */
-        .profile-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .profile-box {
-            background: rgba(255, 0, 127, 0.08);
-            border: 1px solid var(--neon-pink);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: inset 0 0 10px rgba(255, 0, 127, 0.1);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .profile-label {
-            font-size: 0.9rem;
-            color: var(--neon-cyan);
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+    body {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,42,168,.08), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(24,231,255,.07), transparent 28%),
+        var(--bg);
 
-        .profile-val {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-            margin-top: 4px;
-        }
+      color: var(--text-main);
 
-        /* 🍔 Diner-Menü als Bewerbungselement */
-        .menu-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+      font-family:
+        "Trebuchet MS",
+        Arial,
+        Helvetica,
+        sans-serif;
 
-        @media (max-width: 650px) { .menu-list { grid-template-columns: 1fr; } }
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        .menu-item {
-            border-bottom: 1px dashed var(--neon-yellow);
-            padding-bottom: 10px;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
 
-        .menu-item-title {
-            font-family: 'Permanent Marker', cursive;
-            color: var(--neon-pink);
-            font-size: 1.3rem;
-            display: flex;
-            justify-content: space-between;
-        }
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,.018) 0px,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px,
+          transparent 4px
+        );
 
-        .menu-item-desc {
-            font-size: 1rem;
-            color: #ddd;
-            margin-top: 5px;
-        }
+      opacity: .45;
+    }
 
-        /* 📊 Animierte Stärken (Skills) */
-        .skill-bar-container {
-            margin-bottom: 15px;
-        }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
 
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.12) 1px,
+          transparent 1px
+        );
 
-        .skill-progress-bg {
-            background: rgba(255, 255, 255, 0.1);
-            height: 18px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--neon-cyan);
-        }
+      background-size: 8px 8px;
+      opacity: .035;
+    }
 
-        .skill-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-yellow));
-            width: 0%; /* Wird via JS animiert */
-            transition: width 1.8s ease-in-out;
-            box-shadow: 0 0 10px var(--neon-pink);
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        /* 🎰 Interaktiver 50s Slot-Machine Effekt */
-        .slot-machine {
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px dashed var(--neon-green);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
+    button {
+      font: inherit;
+    }
 
-        .slot-display {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 2rem;
-            color: var(--neon-yellow);
-            min-height: 50px;
-            text-shadow: 0 0 10px var(--neon-yellow);
-            margin: 10px 0;
-        }
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-        /* 🎵 Jukebox Sound Button */
-        .jukebox-btn {
-            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
-            border: 2px solid var(--neon-yellow);
-            color: #fff;
-            font-family: 'Shrikhand', cursive;
-            padding: 12px 25px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 0 15px var(--neon-pink);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .jukebox-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px var(--neon-yellow);
-        }
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
 
-        /* 📞 Direct Call Button */
-        .cta-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 18px;
-            background: transparent;
-            border: 3px solid var(--neon-green);
-            color: var(--neon-green);
-            font-family: 'Shrikhand', cursive;
-            font-size: 1.6rem;
-            border-radius: 12px;
-            text-decoration: none;
-            box-shadow: 0 0 15px var(--neon-green);
-            transition: all 0.3s;
-            margin-top: 15px;
-        }
-        .cta-btn:hover {
-            background: var(--neon-green);
-            color: var(--dark-bg);
-            box-shadow: 0 0 35px var(--neon-green);
-        }
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
 
-        /* 🚗 Animierter "Cruise"-Effekt */
-        .cruise-track {
-            width: 100%;
-            height: 60px;
-            border-bottom: 2px dashed var(--neon-cyan);
-            position: relative;
-            overflow: hidden;
-            margin-top: 20px;
-        }
+      background: rgba(7,7,15,.94);
+      backdrop-filter: blur(12px);
 
-        .cruise-car {
-            position: absolute;
-            bottom: 5px;
-            font-size: 2.5rem;
-            animation: driveCar 8s linear infinite;
-        }
+      border-bottom: 1px solid rgba(24,231,255,.2);
+      box-shadow: 0 8px 30px rgba(0,0,0,.45);
+    }
 
-        @keyframes driveCar {
-            0% { left: -10%; transform: scaleX(1); }
-            100% { left: 110%; transform: scaleX(1); }
-        }
+    .nav {
+      min-height: 72px;
 
-        /* ✨ Scroll-Reveal Animationen */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 1rem;
-            color: #aaa;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-    </style>
+    .logo {
+      color: var(--pink);
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      text-shadow:
+        0 0 4px var(--pink),
+        0 0 14px rgba(255,42,168,.7);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: #dfe1ee;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .5px;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      background: rgba(24,231,255,.08);
+      box-shadow: inset 0 -2px 0 var(--cyan);
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 110px;
+
+      position: relative;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 5;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 14px;
+      margin-bottom: 20px;
+
+      color: var(--yellow);
+      background: rgba(255,212,71,.06);
+
+      border: 1px solid rgba(255,212,71,.45);
+      border-radius: 999px;
+
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      box-shadow:
+        0 0 8px rgba(255,212,71,.12);
+    }
+
+    .eyebrow::before {
+      content: "★";
+      animation: blink 1.3s infinite;
+    }
+
+    .hero h1 {
+      font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Black",
+        sans-serif;
+
+      font-size: clamp(4.5rem, 13vw, 10rem);
+      line-height: .8;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+
+      color: var(--pink);
+
+      text-shadow:
+        2px 2px 0 #730743,
+        0 0 4px #ffb5dd,
+        0 0 14px rgba(255,42,168,.8),
+        0 0 35px rgba(255,42,168,.45);
+
+      animation: neonFlicker 5s infinite;
+    }
+
+    .hero-subtitle {
+      margin-top: 22px;
+
+      color: var(--cyan);
+
+      font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+      font-size: clamp(1.4rem, 3vw, 2.5rem);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      text-shadow:
+        0 0 4px var(--cyan),
+        0 0 14px rgba(24,231,255,.55);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin-top: 20px;
+
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 48px;
+      padding: 12px 18px;
+
+      border: 1px solid transparent;
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      font-weight: 900;
+      letter-spacing: .5px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: #160611;
+      background: var(--pink);
+
+      box-shadow:
+        0 0 5px var(--pink),
+        0 0 20px rgba(255,42,168,.35);
+    }
+
+    .btn-secondary {
+      color: #061116;
+      background: var(--cyan);
+
+      box-shadow:
+        0 0 5px var(--cyan),
+        0 0 20px rgba(24,231,255,.3);
+    }
+
+    .btn-dark {
+      color: var(--text-main);
+      background: #0d0e19;
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .btn-dark:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 0 15px rgba(255,212,71,.2);
+    }
+
+    /* =========================================================
+       HERO DINER SIGN
+    ========================================================= */
+
+    .hero-sign {
+      position: relative;
+
+      min-height: 450px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sign {
+      width: min(100%, 430px);
+      padding: 35px 25px;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          #161725,
+          #0d0e18
+        );
+
+      border: 5px solid var(--cyan);
+      border-radius: 28px;
+
+      transform: rotate(2deg);
+
+      box-shadow:
+        0 0 8px var(--cyan),
+        0 0 35px rgba(24,231,255,.25),
+        inset 0 0 25px rgba(24,231,255,.05);
+    }
+
+    .sign::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+
+      border: 2px dashed rgba(255,212,71,.65);
+      border-radius: 18px;
+
+      pointer-events: none;
+    }
+
+    .sign-small {
+      color: var(--yellow);
+
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .sign-main {
+      margin: 18px 0;
+
+      color: var(--pink);
+
+      text-align: center;
+
+      font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: .9;
+
+      text-shadow:
+        0 0 5px var(--pink),
+        0 0 20px rgba(255,42,168,.55);
+    }
+
+    .sign-bottom {
+      color: var(--cyan);
+      text-align: center;
+
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .star {
+      position: absolute;
+      color: var(--yellow);
+      font-size: 1.6rem;
+
+      text-shadow:
+        0 0 5px var(--yellow),
+        0 0 14px rgba(255,212,71,.6);
+
+      animation: twinkle 1.7s infinite alternate;
+    }
+
+    .star.s1 {
+      top: 5%;
+      left: 5%;
+    }
+
+    .star.s2 {
+      top: 15%;
+      right: 8%;
+      animation-delay: .5s;
+    }
+
+    .star.s3 {
+      bottom: 12%;
+      left: 9%;
+      animation-delay: .9s;
+    }
+
+    .star.s4 {
+      bottom: 7%;
+      right: 5%;
+      animation-delay: 1.3s;
+    }
+
+    /* =========================================================
+       CRUISE ROAD
+    ========================================================= */
+
+    .cruise {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      height: 150px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent 0 45%,
+          #12121b 45% 100%
+        );
+
+      border-top: 2px solid rgba(24,231,255,.3);
+    }
+
+    .road-line {
+      position: absolute;
+      top: 54%;
+      left: 0;
+
+      width: 100%;
+      height: 4px;
+
+      background:
+        repeating-linear-gradient(
+          to right,
+          var(--yellow) 0 70px,
+          transparent 70px 125px
+        );
+
+      animation: roadMove .7s linear infinite;
+    }
+
+    .car {
+      position: absolute;
+      left: -140px;
+      bottom: 20px;
+
+      font-size: 4rem;
+
+      filter:
+        drop-shadow(0 0 5px rgba(255,42,168,.6))
+        drop-shadow(0 0 12px rgba(24,231,255,.4));
+
+      animation: cruiseCar 12s linear infinite;
+    }
+
+    /* =========================================================
+       SECTIONS
+    ========================================================= */
+
+    section {
+      position: relative;
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      color: var(--yellow);
+
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-top: 8px;
+
+      color: var(--cyan);
+
+      font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 1;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      text-shadow:
+        0 0 4px var(--cyan),
+        0 0 18px rgba(24,231,255,.4);
+    }
+
+    .section-heading p {
+      max-width: 650px;
+      margin: 16px auto 0;
+
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       PROFILE
+    ========================================================= */
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 25px;
+    }
+
+    .profile-card,
+    .info-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(25,26,42,.98),
+          rgba(13,14,25,.98)
+        );
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow:
+        0 15px 45px rgba(0,0,0,.35);
+
+      overflow: hidden;
+    }
+
+    .profile-card {
+      padding: 32px;
+      text-align: center;
+
+      border-top: 3px solid var(--pink);
+    }
+
+    .avatar {
+      width: 125px;
+      height: 125px;
+
+      margin: 0 auto 20px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          #292a40,
+          #10111d
+        );
+
+      border: 4px solid var(--pink);
+
+      font-size: 4rem;
+
+      box-shadow:
+        0 0 8px var(--pink),
+        0 0 25px rgba(255,42,168,.25);
+    }
+
+    .profile-card h3 {
+      color: #fff;
+      font-size: 1.8rem;
+    }
+
+    .profile-role {
+      margin-top: 5px;
+
+      color: var(--cyan);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .profile-card p {
+      margin-top: 15px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .info-card {
+      padding: 32px;
+    }
+
+    .info-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .info-item {
+      padding: 18px;
+
+      background: #0d0f1b;
+
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+    }
+
+    .info-label {
+      display: block;
+
+      color: var(--yellow);
+
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .info-value {
+      display: block;
+      margin-top: 5px;
+
+      color: #fff;
+
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .phone-link {
+      color: var(--cyan);
+    }
+
+    .phone-link:hover {
+      text-shadow: 0 0 10px var(--cyan);
+    }
+
+    /* =========================================================
+       DINER MENU APPLICATION
+    ========================================================= */
+
+    .menu-board {
+      max-width: 850px;
+      margin: 0 auto;
+
+      padding: 28px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1b1b2c,
+          #10111c
+        );
+
+      border: 3px solid var(--yellow);
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 8px rgba(255,212,71,.45),
+        0 0 35px rgba(255,212,71,.1);
+    }
+
+    .menu-header {
+      padding-bottom: 20px;
+      margin-bottom: 22px;
+
+      text-align: center;
+
+      border-bottom: 2px dashed rgba(255,212,71,.55);
+    }
+
+    .menu-header h3 {
+      color: var(--pink);
+
+      font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      text-shadow:
+        0 0 5px var(--pink),
+        0 0 15px rgba(255,42,168,.35);
+    }
+
+    .menu-header p {
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+
+      padding: 22px 0;
+
+      border-bottom: 1px dashed rgba(255,255,255,.15);
+    }
+
+    .menu-item:last-child {
+      border-bottom: 0;
+    }
+
+    .menu-item h4 {
+      color: var(--cyan);
+      font-size: 1.25rem;
+    }
+
+    .menu-item p {
+      margin-top: 6px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .menu-price {
+      color: var(--yellow);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       STRENGTHS
+    ========================================================= */
+
+    .strengths {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .strength {
+      padding: 22px;
+
+      background: #11121f;
+
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
+    }
+
+    .strength:hover {
+      transform: translateY(-5px);
+      border-color: rgba(24,231,255,.45);
+    }
+
+    .strength-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      color: #fff;
+
+      font-weight: 900;
+    }
+
+    .strength-percent {
+      color: var(--yellow);
+    }
+
+    .bar {
+      height: 12px;
+      margin-top: 12px;
+
+      overflow: hidden;
+
+      background: #080912;
+
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+    }
+
+    .bar-fill {
+      width: 0;
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--pink),
+          var(--cyan)
+        );
+
+      box-shadow:
+        0 0 7px rgba(24,231,255,.5);
+    }
+
+    .strength.visible .bar-fill {
+      animation: fillBar 1.5s ease forwards;
+    }
+
+    /* =========================================================
+       WHY JEFF
+    ========================================================= */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .why-card {
+      min-height: 190px;
+
+      padding: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #171827,
+          #0f101a
+        );
+
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 16px;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,.4),
+        0 0 18px rgba(255,42,168,.12);
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .why-card h3 {
+      color: var(--pink);
+      font-size: 1.15rem;
+    }
+
+    .why-card p {
+      margin-top: 8px;
+
+      color: var(--text-secondary);
+      font-size: .94rem;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       JUKEBOX
+    ========================================================= */
+
+    .jukebox-section {
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255,42,168,.07),
+          transparent 45%
+        );
+    }
+
+    .jukebox {
+      max-width: 560px;
+      margin: 0 auto;
+
+      padding: 30px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #222338,
+          #10111c
+        );
+
+      border: 4px solid var(--pink);
+      border-radius: 28px;
+
+      box-shadow:
+        0 0 10px rgba(255,42,168,.5),
+        0 0 40px rgba(255,42,168,.13);
+    }
+
+    .jukebox-top {
+      color: var(--yellow);
+
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .jukebox-screen {
+      margin: 20px 0;
+      padding: 30px 15px;
+
+      background: #080a13;
+
+      border: 2px solid var(--cyan);
+      border-radius: 15px;
+
+      box-shadow:
+        inset 0 0 20px rgba(24,231,255,.08),
+        0 0 12px rgba(24,231,255,.2);
+    }
+
+    .equalizer {
+      height: 65px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .equalizer span {
+      width: 6px;
+      height: 15px;
+
+      border-radius: 5px;
+
+      background: var(--cyan);
+
+      box-shadow:
+        0 0 6px var(--cyan);
+
+      animation: equalize .8s infinite ease-in-out;
+      animation-play-state: paused;
+    }
+
+    .jukebox.playing .equalizer span {
+      animation-play-state: running;
+    }
+
+    .equalizer span:nth-child(2) { animation-delay: .1s; }
+    .equalizer span:nth-child(3) { animation-delay: .2s; }
+    .equalizer span:nth-child(4) { animation-delay: .3s; }
+    .equalizer span:nth-child(5) { animation-delay: .4s; }
+    .equalizer span:nth-child(6) { animation-delay: .25s; }
+    .equalizer span:nth-child(7) { animation-delay: .15s; }
+
+    .jukebox-title {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .jukebox-status {
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .jukebox-button {
+      margin-top: 20px;
+
+      width: 72px;
+      height: 72px;
+
+      border-radius: 50%;
+
+      border: 4px solid var(--yellow);
+
+      color: #111;
+      background: var(--yellow);
+
+      cursor: pointer;
+
+      font-size: 1.5rem;
+
+      box-shadow:
+        0 0 8px var(--yellow),
+        0 0 25px rgba(255,212,71,.25);
+
+      transition: .2s ease;
+    }
+
+    .jukebox-button:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================================================
+       SLOT MACHINE
+    ========================================================= */
+
+    .slot-section {
+      padding-top: 40px;
+    }
+
+    .slot-machine {
+      max-width: 520px;
+      margin: 0 auto;
+
+      padding: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #241b29,
+          #10111c
+        );
+
+      border: 3px solid var(--pink);
+      border-radius: 22px;
+
+      text-align: center;
+
+      box-shadow:
+        0 0 20px rgba(255,42,168,.15);
+    }
+
+    .slot-title {
+      color: var(--yellow);
+
+      font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .slots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      margin: 25px 0;
+    }
+
+    .slot {
+      width: 85px;
+      height: 85px;
+
+      display: grid;
+      place-items: center;
+
+      background: #080a12;
+
+      border: 2px solid var(--cyan);
+      border-radius: 12px;
+
+      color: #fff;
+
+      font-size: 2.6rem;
+
+      box-shadow:
+        inset 0 0 15px rgba(24,231,255,.08),
+        0 0 8px rgba(24,231,255,.18);
+    }
+
+    .slot-message {
+      min-height: 28px;
+
+      color: var(--text-secondary);
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-box {
+      max-width: 850px;
+      margin: 0 auto;
+
+      padding: 40px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #171827,
+          #0c0e18
+        );
+
+      border: 2px solid var(--cyan);
+      border-radius: 22px;
+
+      box-shadow:
+        0 0 25px rgba(24,231,255,.1);
+    }
+
+    .contact-box h2 {
+      color: var(--pink);
+
+      font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      text-transform: uppercase;
+
+      text-shadow:
+        0 0 5px var(--pink),
+        0 0 18px rgba(255,42,168,.4);
+    }
+
+    .contact-box p {
+      max-width: 600px;
+      margin: 15px auto;
+
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .contact-phone {
+      display: inline-block;
+
+      margin: 20px 0;
+
+      color: var(--cyan);
+
+      font-size: clamp(1.7rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: 2px;
+
+      text-shadow:
+        0 0 5px var(--cyan),
+        0 0 16px rgba(24,231,255,.4);
+    }
+
+    .contact-phone:hover {
+      color: #fff;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 35px 0;
+
+      background: #06070d;
+
+      border-top: 1px solid rgba(255,255,255,.1);
+
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .footer-neon {
+      color: var(--pink);
+    }
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+
+      z-index: 2000;
+
+      transform:
+        translate(-50%, 120px);
+
+      padding: 13px 18px;
+
+      background: #111321;
+
+      border: 1px solid var(--cyan);
+      border-radius: 10px;
+
+      color: #fff;
+
+      font-size: .9rem;
+      font-weight: 800;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.5),
+        0 0 15px rgba(24,231,255,.15);
+
+      transition: transform .3s ease;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       ANIMATIONS
+    ========================================================= */
+
+    @keyframes neonFlicker {
+      0%, 17%, 19%, 21%, 63%, 65%, 100% {
+        opacity: 1;
+      }
+
+      18%, 20%, 64% {
+        opacity: .78;
+      }
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .3;
+      }
+    }
+
+    @keyframes twinkle {
+      from {
+        transform: scale(.75) rotate(0deg);
+        opacity: .45;
+      }
+
+      to {
+        transform: scale(1.15) rotate(15deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes cruiseCar {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(100vw + 180px));
+      }
+    }
+
+    @keyframes roadMove {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: -125px 0;
+      }
+    }
+
+    @keyframes fillBar {
+      from {
+        width: 0;
+      }
+    }
+
+    @keyframes equalize {
+      0%, 100% {
+        height: 12px;
+      }
+
+      50% {
+        height: 60px;
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero-sign {
+        min-height: 370px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .strengths {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .topbar {
+        position: relative;
+      }
+
+      .nav {
+        padding: 14px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .nav-links a {
+        padding: 6px 8px;
+        font-size: .72rem;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: clamp(4rem, 24vw, 7rem);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-sign {
+        min-height: 320px;
+      }
+
+      .sign {
+        padding: 30px 15px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .info-list {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-board,
+      .contact-box,
+      .jukebox,
+      .slot-machine {
+        padding: 20px;
+      }
+
+      .menu-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .slots {
+        gap: 6px;
+      }
+
+      .slot {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+      }
+
+      .contact-phone {
+        font-size: 1.7rem;
+        letter-spacing: 1px;
+      }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- 🌟 Sterne-Deko Generator Background -->
-    <div id="stars-container"></div>
+  <!-- =======================================================
+       NAV
+  ======================================================== -->
 
-    <div class="container">
-        
-        <!-- 🕺 50s Neon Header -->
-        <header class="reveal">
-            <h1 class="neon-sign">Rex Diner</h1>
-            <div class="dino-sub">★ BEWERBUNG ALS ANGESTELLTER ★</div>
-            <div class="tagline-yellow">"Klassischer 50s Vibe trifft Dinotastischen Service!"</div>
-            
-            <div style="margin-top: 20px;">
-                <!-- 🎵 Jukebox Web-Audio Button -->
-                <button class="jukebox-btn" onclick="toggleJukebox()">
-                    🎷 <span id="jukebox-text">Jukebox Starten (Retro-Vibe)</span>
-                </button>
-            </div>
-        </header>
+  <header class="topbar">
+    <div class="container nav">
 
-        <!-- 👤 Bewerberprofil Section -->
-        <section class="card reveal">
-            <div class="card-header-title">👤 BEWERBERPROFIL</div>
-            <div class="profile-grid">
-                <div class="profile-box">
-                    <div class="profile-label">Name</div>
-                    <div class="profile-val">Jeff Jeremain</div>
-                </div>
-                <div class="profile-box">
-                    <div class="profile-label">Visumstufe</div>
-                    <div class="profile-val">28</div>
-                </div>
-                <div class="profile-box">
-                    <div class="profile-label">Telefonnummer</div>
-                    <div class="profile-val">6029103965</div>
-                </div>
-                <div class="profile-box">
-                    <div class="profile-label">Adresse</div>
-                    <div class="profile-val">Bridge Street, 7294</div>
-                </div>
-            </div>
-        </section>
+      <a href="#home" class="logo">
+        REX DINER
+      </a>
 
-        <!-- 🍔 Diner-Menü als Bewerbungselement -->
-        <section class="card reveal">
-            <div class="card-header-title">🍔 BOCK AUF SERVICE? (MEIN BEWERBUNGS-MENÜ)</div>
-            <div class="menu-list">
-                <div class="menu-item">
-                    <div class="menu-item-title"><span>1. Service Deluxe</span> <span>100%</span></div>
-                    <div class="menu-item-desc">Zubereitung von Rawwr- & Rex-Boxen, Burger-Kreationen und Bedienung mit echtem 50s Charme.</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title"><span>2. Teamgeist Shake</span> <span>TOP</span></div>
-                    <div class="menu-item-desc">Perfekte Mischung aus Zuverlässigkeit, Humor und hoher Belastbarkeit bei Rush-Hours.</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title"><span>3. Kassen-Drive</span> <span>FAST</span></div>
-                    <div class="menu-item-desc">Schnelles und präzises Kassieren, freundliche Kundenberatung und Sammler-Support.</div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title"><span>4. 24/7 Präsenz</span> <span>OPEN</span></div>
-                    <div class="menu-item-desc">Flexibel einsetzbar – ob Tagsüber oder in der Spätschicht. Immer erreichbar!</div>
-                </div>
-            </div>
-        </section>
+      <nav class="nav-links">
+        <a href="#profil">Profil</a>
+        <a href="#bewerbung">Bewerbung</a>
+        <a href="#staerken">Stärken</a>
+        <a href="#jukebox">Jukebox</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
 
-        <!-- 📊 Animierte Stärken (Skills) -->
-        <section class="card reveal" id="skills-section">
-            <div class="card-header-title">📊 QUALIFIKATIONEN & SKILLS</div>
-            
-            <div class="skill-bar-container">
-                <div class="skill-info"><span>Kundenservice & Freundlichkeit</span><span>98%</span></div>
-                <div class="skill-progress-bg"><div class="skill-progress-fill" data-width="98%"></div></div>
-            </div>
+    </div>
+  </header>
 
-            <div class="skill-bar-container">
-                <div class="skill-info"><span>Zubereitung & Diner-Küche</span><span>92%</span></div>
-                <div class="skill-progress-bg"><div class="skill-progress-fill" data-width="92%"></div></div>
-            </div>
 
-            <div class="skill-bar-container">
-                <div class="skill-info"><span>Stressresistenz bei Andrang</span><span>95%</span></div>
-                <div class="skill-progress-bg"><div class="skill-progress-fill" data-width="95%"></div></div>
-            </div>
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
 
-            <div class="skill-bar-container">
-                <div class="skill-info"><span>Ortskenntnis & Visum (Stufe 28)</span><span>100%</span></div>
-                <div class="skill-progress-bg"><div class="skill-progress-fill" data-width="100%"></div></div>
-            </div>
-        </section>
+  <main>
 
-        <!-- 🎰 Interaktiver Retro Slot-Machine Generator -->
-        <section class="card reveal">
-            <div class="card-header-title">🎰 WARUM JEFF JEREMAIN? (LUCK-O-MAT)</div>
-            <div class="slot-machine">
-                <p style="color: var(--neon-cyan);">Klicke auf den Button, um eine Eigenschaft zu drehen:</p>
-                <div class="slot-display" id="slot-text">???</div>
-                <button class="jukebox-btn" style="border-color: var(--neon-green);" onclick="spinSlot()">🎰 DREHEN!</button>
-            </div>
-        </section>
+    <section class="hero" id="home">
 
-        <!-- 🚗 Animierter Cruise-Effekt -->
-        <div class="cruise-track reveal">
-            <div class="cruise-car">🏎️💨</div>
+      <div class="container hero-grid">
+
+        <div class="hero-copy reveal">
+
+          <div class="eyebrow">
+            Bewerbung beim Rex Diner
+          </div>
+
+          <h1>
+            JEFF
+          </h1>
+
+          <div class="hero-subtitle">
+            Ready to join the diner?
+          </div>
+
+          <p class="hero-description">
+            36 Jahre, motiviert, zuverlässig und bereit für ein
+            echtes amerikanisches Diner-Erlebnis. Willkommen bei
+            meiner etwas anderen Bewerbung.
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#bewerbung" class="btn btn-primary">
+              🍔 Bewerbung ansehen
+            </a>
+
+            <a href="tel:6029103965" class="btn btn-secondary">
+              ☎ Direkt anrufen
+            </a>
+
+            <button
+              class="btn btn-dark"
+              id="musicHeroButton"
+              type="button"
+            >
+              🎵 Jukebox starten
+            </button>
+
+          </div>
+
         </div>
 
-        <!-- 📍 Kontaktbereich & Direkter Telefon-Button -->
-        <section class="card reveal" style="text-align: center; border-color: var(--neon-green);">
-            <div class="card-header-title" style="justify-content: center;">📍 JETZT EINLADEN!</div>
-            <p style="font-size: 1.2rem; color: #fff;">Ich bin bereit für Probearbeiten im Rex Diner. Lass uns ins Gespräch kommen!</p>
-            <a href="tel:6029103965" class="cta-btn">📞 JEFF ANRUFEN: 6029103965</a>
-        </section>
 
-        <footer>
-            <p>★ Rex Diner Bewerbung | Jeff Jeremain | Bridge Street, 7294 ★</p>
-            <p style="color: var(--neon-pink); margin-top: 5px;">ISS • TRINK • BRÜLL! — Willkommen im Diner</p>
-        </footer>
+        <div class="hero-sign reveal">
+
+          <span class="star s1">★</span>
+          <span class="star s2">✦</span>
+          <span class="star s3">★</span>
+          <span class="star s4">✦</span>
+
+          <div class="sign">
+
+            <div class="sign-small">
+              Welcome to
+            </div>
+
+            <div class="sign-main">
+              REX
+            </div>
+
+            <div class="sign-bottom">
+              Diner &nbsp; • &nbsp; Since Forever
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Cruise Animation -->
+
+      <div class="cruise" aria-hidden="true">
+
+        <div class="road-line"></div>
+
+        <div class="car">
+          🚘
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROFILE
+    ====================================================== -->
+
+    <section id="profil">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            The applicant
+          </div>
+
+          <h2>
+            Mein Profil
+          </h2>
+
+          <p>
+            Ein kurzer Blick auf den Menschen hinter der Bewerbung.
+          </p>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+          <article class="profile-card reveal">
+
+            <div class="avatar">
+              😎
+            </div>
+
+            <h3>
+              Jeff Jeremain
+            </h3>
+
+            <div class="profile-role">
+              Diner Candidate
+            </div>
+
+            <p>
+              Freundlich, motiviert und bereit, mit guter Laune
+              Teil des Rex-Diner-Teams zu werden.
+            </p>
+
+          </article>
+
+
+          <article class="info-card reveal">
+
+            <div class="info-list">
+
+              <div class="info-item">
+                <span class="info-label">Name</span>
+                <span class="info-value">Jeff Jeremain</span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Alter</span>
+                <span class="info-value">36 Jahre</span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Visum</span>
+                <span class="info-value">28</span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Adresse</span>
+                <span class="info-value">
+                  Bridge Street, 7294
+                </span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Telefon</span>
+
+                <a
+                  class="info-value phone-link"
+                  href="tel:6029103965"
+                >
+                  6029103965
+                </a>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Status</span>
+                <span class="info-value">
+                  Ready for the shift
+                </span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         APPLICATION MENU
+    ====================================================== -->
+
+    <section id="bewerbung">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            Special of the day
+          </div>
+
+          <h2>
+            Meine Bewerbung
+          </h2>
+
+          <p>
+            Serviert auf einer klassischen Diner-Menükarte.
+          </p>
+
+        </div>
+
+
+        <div class="menu-board reveal">
+
+          <div class="menu-header">
+
+            <h3>
+              Jeff's Diner Menu
+            </h3>
+
+            <p>
+              Freshly prepared • Served with a smile
+            </p>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <h4>
+                🍔 Team Player Burger
+              </h4>
+
+              <p>
+                Zusammenarbeit, gegenseitige Unterstützung
+                und ein gutes Teamgefühl inklusive.
+              </p>
+            </div>
+
+            <div class="menu-price">
+              95%
+            </div>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <h4>
+                🥤 Good Mood Shake
+              </h4>
+
+              <p>
+                Freundlichkeit und positive Energie –
+                auch wenn es im Diner mal richtig voll wird.
+              </p>
+            </div>
+
+            <div class="menu-price">
+              97%
+            </div>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <h4>
+                🍟 Fast & Reliable Fries
+              </h4>
+
+              <p>
+                Zuverlässig arbeiten, Aufgaben erledigen
+                und auch unter Zeitdruck den Überblick behalten.
+              </p>
+            </div>
+
+            <div class="menu-price">
+              94%
+            </div>
+
+          </div>
+
+
+          <div class="menu-item">
+
+            <div>
+              <h4>
+                ⭐ Rex Special
+              </h4>
+
+              <p>
+                Motivation, Flexibilität und die Bereitschaft,
+                Neues zu lernen und Verantwortung zu übernehmen.
+              </p>
+            </div>
+
+            <div class="menu-price">
+              98%
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STRENGTHS
+    ====================================================== -->
+
+    <section id="staerken">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            Served fresh
+          </div>
+
+          <h2>
+            Meine Stärken
+          </h2>
+
+          <p>
+            Ein bisschen Statistik darf bei einer Diner-Bewerbung
+            natürlich nicht fehlen.
+          </p>
+
+        </div>
+
+
+        <div class="strengths">
+
+          <div
+            class="strength reveal"
+            data-percent="95"
+          >
+            <div class="strength-top">
+              <span>Teamwork</span>
+              <span class="strength-percent">95%</span>
+            </div>
+
+            <div class="bar">
+              <div class="bar-fill"></div>
+            </div>
+          </div>
+
+
+          <div
+            class="strength reveal"
+            data-percent="94"
+          >
+            <div class="strength-top">
+              <span>Zuverlässigkeit</span>
+              <span class="strength-percent">94%</span>
+            </div>
+
+            <div class="bar">
+              <div class="bar-fill"></div>
+            </div>
+          </div>
+
+
+          <div
+            class="strength reveal"
+            data-percent="98"
+          >
+            <div class="strength-top">
+              <span>Motivation</span>
+              <span class="strength-percent">98%</span>
+            </div>
+
+            <div class="bar">
+              <div class="bar-fill"></div>
+            </div>
+          </div>
+
+
+          <div
+            class="strength reveal"
+            data-percent="90"
+          >
+            <div class="strength-top">
+              <span>Stressresistenz</span>
+              <span class="strength-percent">90%</span>
+            </div>
+
+            <div class="bar">
+              <div class="bar-fill"></div>
+            </div>
+          </div>
+
+
+          <div
+            class="strength reveal"
+            data-percent="97"
+          >
+            <div class="strength-top">
+              <span>Freundlichkeit</span>
+              <span class="strength-percent">97%</span>
+            </div>
+
+            <div class="bar">
+              <div class="bar-fill"></div>
+            </div>
+          </div>
+
+
+          <div
+            class="strength reveal"
+            data-percent="92"
+          >
+            <div class="strength-top">
+              <span>Flexibilität</span>
+              <span class="strength-percent">92%</span>
+            </div>
+
+            <div class="bar">
+              <div class="bar-fill"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHY JEFF
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            Why hire me?
+          </div>
+
+          <h2>
+            Warum Jeff?
+          </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+          <article class="why-card reveal">
+
+            <div class="why-icon">
+              🤝
+            </div>
+
+            <h3>
+              Teamplayer
+            </h3>
+
+            <p>
+              Ich arbeite gerne mit anderen zusammen und
+              unterstütze das Team dort, wo Hilfe gebraucht wird.
+            </p>
+
+          </article>
+
+
+          <article class="why-card reveal">
+
+            <div class="why-icon">
+              ⚡
+            </div>
+
+            <h3>
+              Schnell & zuverlässig
+            </h3>
+
+            <p>
+              Aufgaben werden nicht unnötig aufgeschoben.
+              Wenn Arbeit anfällt, wird angepackt.
+            </p>
+
+          </article>
+
+
+          <article class="why-card reveal">
+
+            <div class="why-icon">
+              😄
+            </div>
+
+            <h3>
+              Gute Laune
+            </h3>
+
+            <p>
+              Gerade im Kundenkontakt ist ein freundliches
+              Auftreten für mich selbstverständlich.
+            </p>
+
+          </article>
+
+
+          <article class="why-card reveal">
+
+            <div class="why-icon">
+              🚀
+            </div>
+
+            <h3>
+              Lernbereit
+            </h3>
+
+            <p>
+              Neue Abläufe und Aufgaben lerne ich gerne
+              und arbeite mich schnell ein.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         JUKEBOX
+    ====================================================== -->
+
+    <section
+      class="jukebox-section"
+      id="jukebox"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            Turn up the volume
+          </div>
+
+          <h2>
+            Jukebox
+          </h2>
+
+          <p>
+            Ein kleiner Retro-Soundeffekt direkt im Browser.
+            Keine externe Bibliothek notwendig.
+          </p>
+
+        </div>
+
+
+        <div
+          class="jukebox reveal"
+          id="jukeboxBox"
+        >
+
+          <div class="jukebox-top">
+            Rex Diner Radio
+          </div>
+
+
+          <div class="jukebox-screen">
+
+            <div class="equalizer">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+            <div class="jukebox-title">
+              Midnight Drive
+            </div>
+
+            <div
+              class="jukebox-status"
+              id="jukeboxStatus"
+            >
+              Press play to start
+            </div>
+
+          </div>
+
+
+          <button
+            class="jukebox-button"
+            id="jukeboxButton"
+            type="button"
+            aria-label="Jukebox starten"
+          >
+            ▶
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SLOT MACHINE
+    ====================================================== -->
+
+    <section class="slot-section">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            Just for fun
+          </div>
+
+          <h2>
+            Lucky Shift
+          </h2>
+
+          <p>
+            Ein kleiner Retro-Slot für den nächsten perfekten
+            Arbeitstag.
+          </p>
+
+        </div>
+
+
+        <div class="slot-machine reveal">
+
+          <div class="slot-title">
+            REX SLOT
+          </div>
+
+
+          <div class="slots">
+
+            <div class="slot" id="slot1">
+              🍔
+            </div>
+
+            <div class="slot" id="slot2">
+              ⭐
+            </div>
+
+            <div class="slot" id="slot3">
+              🥤
+            </div>
+
+          </div>
+
+
+          <div
+            class="slot-message"
+            id="slotMessage"
+          >
+            Drück den Button!
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            id="slotButton"
+            type="button"
+          >
+            🎰 SPIN
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section id="kontakt">
+
+      <div class="container">
+
+        <div class="contact-box reveal">
+
+          <div class="section-kicker">
+            Call me
+          </div>
+
+          <h2>
+            Let's Talk
+          </h2>
+
+          <p>
+            Wenn meine Bewerbung interessant klingt,
+            freue ich mich über eine persönliche Rückmeldung.
+          </p>
+
+
+          <a
+            href="tel:6029103965"
+            class="contact-phone"
+          >
+            ☎ 6029103965
+          </a>
+
+
+          <div class="hero-actions" style="justify-content:center;">
+
+            <a
+              href="tel:6029103965"
+              class="btn btn-secondary"
+            >
+              Jetzt anrufen
+            </a>
+
+            <a
+              href="#home"
+              class="btn btn-dark"
+            >
+              ↑ Nach oben
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        Made with
+        <span class="footer-neon">♥</span>
+        & neon lights for Rex Diner.
+      </p>
+
+      <p style="margin-top:6px;">
+        Jeff Jeremain • Retro Application • 2026
+      </p>
 
     </div>
 
-    <!-- NATIVE JAVASCRIPT (NO EXTERNAL LIBS) -->
-    <script>
-        // ⭐ 1. Generator für Retro-Sterne
-        const starsContainer = document.getElementById('stars-container');
-        for (let i = 0; i < 25; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.innerText = '★';
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.animationDelay = Math.random() * 2 + 's';
-            starsContainer.appendChild(star);
-        }
+  </footer>
 
-        // ✨ 2. Scroll-Reveal Animation
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-            reveals.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) {
-                    el.classList.add('active');
-                    // Falls Skills-Sektion im Viewport ist -> Ladebalken animieren
-                    if (el.id === 'skills-section') {
-                        animateSkills();
-                    }
-                }
-            });
-        }
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial Check
 
-        // 📊 3. Skill-Balken Animation
-        let skillsAnimated = false;
-        function animateSkills() {
-            if (skillsAnimated) return;
-            skillsAnimated = true;
-            const fills = document.querySelectorAll('.skill-progress-fill');
-            fills.forEach(fill => {
-                fill.style.width = fill.getAttribute('data-width');
-            });
-        }
+  <!-- Toast -->
 
-        // 🎰 4. Interaktives Slot-Machine Element
-        const slotPhrases = [
-            "🍔 Pünktlich wie die Uhrzeit!",
-            "⚡ Pfeilschneller Service!",
-            "🤝 Extrem Teamfähig!",
-            "🦖 Voller Rex-Diner Spirit!",
-            "💪 Stressresistent & Motiviert!",
-            "📞 Immer 24/7 Erreichbar!"
-        ];
-        function spinSlot() {
-            const display = document.getElementById('slot-text');
-            let counter = 0;
-            playClickSound();
-            const interval = setInterval(() => {
-                display.innerText = slotPhrases[Math.floor(Math.random() * slotPhrases.length)];
-                counter++;
-                if (counter > 10) {
-                    clearInterval(interval);
-                    display.innerText = slotPhrases[Math.floor(Math.random() * slotPhrases.length)];
-                }
-            }, 80);
-        }
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  >
+    Nice!
+  </div>
 
-        // 🎵 5. Web-Audio API Synthesizer (Keine externen MP3-Dateien nötig!)
-        let audioCtx = null;
-        let jukeboxPlaying = false;
-        let jukeboxInterval = null;
 
-        function toggleJukebox() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  <!-- =======================================================
+       JAVASCRIPT
+       No external libraries
+  ======================================================== -->
+
+  <script>
+
+    /* =======================================================
+       SCROLL REVEAL
+    ======================================================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(entry.target);
+
             }
-            
-            const btnText = document.getElementById('jukebox-text');
-            if (!jukeboxPlaying) {
-                jukeboxPlaying = true;
-                btnText.innerText = "🎵 Rock'n'Roll Sound Läuft! (Klick zum Stoppen)";
-                playJukeboxBeat();
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+
+    /* =======================================================
+       STRENGTH BARS
+    ======================================================== */
+
+    const strengths =
+      document.querySelectorAll(".strength");
+
+    const strengthObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const strength = entry.target;
+            const percent =
+              strength.dataset.percent;
+
+            const bar =
+              strength.querySelector(".bar-fill");
+
+            bar.style.width = percent + "%";
+
+            strength.classList.add("visible");
+
+            strengthObserver.unobserve(strength);
+
+          });
+
+        },
+        {
+          threshold: 0.3
+        }
+      );
+
+    strengths.forEach(strength => {
+      strengthObserver.observe(strength);
+    });
+
+
+    /* =======================================================
+       TOAST
+    ======================================================== */
+
+    const toast =
+      document.getElementById("toast");
+
+    let toastTimer;
+
+    function showToast(message) {
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 2500);
+    }
+
+
+    /* =======================================================
+       JUKEBOX / WEB AUDIO
+    ======================================================== */
+
+    let audioContext = null;
+    let masterGain = null;
+    let musicTimer = null;
+    let musicPlaying = false;
+
+    const jukebox =
+      document.getElementById("jukeboxBox");
+
+    const jukeboxButton =
+      document.getElementById("jukeboxButton");
+
+    const jukeboxStatus =
+      document.getElementById("jukeboxStatus");
+
+    const heroMusicButton =
+      document.getElementById("musicHeroButton");
+
+
+    function createAudio() {
+
+      if (!audioContext) {
+
+        audioContext =
+          new (
+            window.AudioContext ||
+            window.webkitAudioContext
+          )();
+
+        masterGain =
+          audioContext.createGain();
+
+        masterGain.gain.value = 0.045;
+
+        masterGain.connect(
+          audioContext.destination
+        );
+
+      }
+
+    }
+
+
+    function playTone(
+      frequency,
+      duration,
+      startTime,
+      type = "square"
+    ) {
+
+      const oscillator =
+        audioContext.createOscillator();
+
+      const gain =
+        audioContext.createGain();
+
+      oscillator.type = type;
+
+      oscillator.frequency.value =
+        frequency;
+
+      oscillator.connect(gain);
+
+      gain.connect(masterGain);
+
+      const now =
+        startTime || audioContext.currentTime;
+
+      gain.gain.setValueAtTime(
+        0.0001,
+        now
+      );
+
+      gain.gain.exponentialRampToValueAtTime(
+        0.12,
+        now + 0.015
+      );
+
+      gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        now + duration
+      );
+
+      oscillator.start(now);
+
+      oscillator.stop(
+        now + duration + 0.02
+      );
+
+    }
+
+
+    function startMusic() {
+
+      createAudio();
+
+      if (
+        audioContext.state === "suspended"
+      ) {
+
+        audioContext.resume();
+
+      }
+
+      const melody = [
+        261.63,
+        329.63,
+        392.00,
+        329.63,
+        293.66,
+        349.23,
+        440.00,
+        349.23
+      ];
+
+      let index = 0;
+
+      clearInterval(musicTimer);
+
+      musicTimer =
+        setInterval(() => {
+
+          if (!musicPlaying) {
+            return;
+          }
+
+          const frequency =
+            melody[index % melody.length];
+
+          playTone(
+            frequency,
+            .24,
+            audioContext.currentTime,
+            "triangle"
+          );
+
+          index++;
+
+        }, 310);
+
+    }
+
+
+    function stopMusic() {
+
+      clearInterval(musicTimer);
+
+      musicTimer = null;
+
+    }
+
+
+    function toggleMusic() {
+
+      createAudio();
+
+      if (
+        audioContext.state === "suspended"
+      ) {
+
+        audioContext.resume();
+
+      }
+
+      musicPlaying =
+        !musicPlaying;
+
+      if (musicPlaying) {
+
+        startMusic();
+
+        jukebox.classList.add("playing");
+
+        jukeboxButton.textContent = "■";
+
+        jukeboxStatus.textContent =
+          "Now playing • Midnight Drive";
+
+        heroMusicButton.textContent =
+          "⏹ Jukebox stoppen";
+
+        showToast(
+          "🎵 Jukebox läuft!"
+        );
+
+      } else {
+
+        stopMusic();
+
+        jukebox.classList.remove("playing");
+
+        jukeboxButton.textContent = "▶";
+
+        jukeboxStatus.textContent =
+          "Press play to start";
+
+        heroMusicButton.textContent =
+          "🎵 Jukebox starten";
+
+        showToast(
+          "Jukebox gestoppt."
+        );
+
+      }
+
+    }
+
+
+    jukeboxButton.addEventListener(
+      "click",
+      toggleMusic
+    );
+
+    heroMusicButton.addEventListener(
+      "click",
+      () => {
+
+        document
+          .getElementById("jukebox")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+        setTimeout(
+          toggleMusic,
+          500
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       SLOT MACHINE
+    ======================================================== */
+
+    const slotSymbols = [
+      "🍔",
+      "🍟",
+      "🥤",
+      "⭐",
+      "🍒",
+      "🎰"
+    ];
+
+    const slot1 =
+      document.getElementById("slot1");
+
+    const slot2 =
+      document.getElementById("slot2");
+
+    const slot3 =
+      document.getElementById("slot3");
+
+    const slotMessage =
+      document.getElementById("slotMessage");
+
+    const slotButton =
+      document.getElementById("slotButton");
+
+
+    function randomSymbol() {
+
+      return slotSymbols[
+        Math.floor(
+          Math.random() *
+          slotSymbols.length
+        )
+      ];
+
+    }
+
+
+    function spinSlots() {
+
+      slotButton.disabled = true;
+
+      slotMessage.textContent =
+        "Spinning...";
+
+      let counter = 0;
+
+      const interval =
+        setInterval(() => {
+
+          slot1.textContent =
+            randomSymbol();
+
+          slot2.textContent =
+            randomSymbol();
+
+          slot3.textContent =
+            randomSymbol();
+
+          counter++;
+
+          if (counter >= 15) {
+
+            clearInterval(interval);
+
+            const a = slot1.textContent;
+            const b = slot2.textContent;
+            const c = slot3.textContent;
+
+            if (a === b && b === c) {
+
+              slotMessage.textContent =
+                "🎉 JACKPOT! Perfekter Shift!";
+
+              showToast(
+                "🎉 JACKPOT!"
+              );
+
+            } else if (
+              a === b ||
+              b === c ||
+              a === c
+            ) {
+
+              slotMessage.textContent =
+                "⭐ Nice! Fast ein Jackpot.";
+
+              showToast(
+                "⭐ Fast geschafft!"
+              );
+
             } else {
-                jukeboxPlaying = false;
-                btnText.innerText = "🎷 Jukebox Starten (Retro-Vibe)";
-                clearInterval(jukeboxInterval);
+
+              slotMessage.textContent =
+                "🍔 Neuer Versuch – der nächste Shift wird besser!";
+
             }
+
+            slotButton.disabled = false;
+
+          }
+
+        }, 80);
+
+    }
+
+
+    slotButton.addEventListener(
+      "click",
+      () => {
+
+        createAudio();
+
+        if (
+          audioContext.state === "suspended"
+        ) {
+
+          audioContext.resume();
+
         }
 
-        function playClickSound() {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-            gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + 0.1);
+        playTone(
+          180,
+          .1,
+          audioContext.currentTime
+        );
+
+        spinSlots();
+
+      }
+    );
+
+
+    /* =======================================================
+       PHONE BUTTON MICRO FEEDBACK
+    ======================================================== */
+
+    document
+      .querySelectorAll('a[href^="tel:"]')
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            showToast(
+              "☎ Telefonnummer wird gewählt..."
+            );
+
+          }
+        );
+
+      });
+
+
+    /* =======================================================
+       RANDOM RETRO STAR EFFECT
+    ======================================================== */
+
+    document.addEventListener(
+      "mousemove",
+      event => {
+
+        if (
+          window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches
+        ) {
+          return;
         }
 
-        function playJukeboxBeat() {
-            const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23]; // 50s Rock-n-Roll Arpeggio
-            let noteIdx = 0;
+        const x =
+          event.clientX / window.innerWidth;
 
-            jukeboxInterval = setInterval(() => {
-                if (!jukeboxPlaying) return;
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(notes[noteIdx], audioCtx.currentTime);
-                
-                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+        const y =
+          event.clientY / window.innerHeight;
 
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
+        document.documentElement.style.setProperty(
+          "--mouse-x",
+          x
+        );
 
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.3);
+        document.documentElement.style.setProperty(
+          "--mouse-y",
+          y
+        );
 
-                noteIdx = (noteIdx + 1) % notes.length;
-            }, 250);
-        }
-    </script>
+      }
+    );
+
+
+    /* =======================================================
+       INITIAL LOAD
+    ======================================================== */
+
+    window.addEventListener(
+      "load",
+      () => {
+
+        setTimeout(() => {
+
+          showToast(
+            "🍔 Welcome to Jeff's Diner!"
+          );
+
+        }, 900);
+
+      }
+    );
+
+  </script>
+
 </body>
 </html>
